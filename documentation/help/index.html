@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Autoloader PHP Documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="CobiBlau">
+
+    <!-- Le styles -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/docs.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="shortcut icon" href="images/favicon.png">
+  </head>
+
+  <body data-spy="scroll" data-target="#nav">
+
+    <div class="container">
+      <div class="row">
+        <div class="span12">
+            <h1>&OpenCurlyDoubleQuote;Autoloader PHP&CloseCurlyDoubleQuote; Documentation 1.0</h1>
+        </div>
+        <div class="span3">
+          <div class="sidebar-nav" data-spy="affix" data-offset-top="100" id="nav">
+            <ul class="nav nav-list bs-docs-sidenav">
+              <li><a href="#installation">Installation</a></li>
+              <li><a href="#configuration">Configuration</a></li>
+              <li><a href="#howto">How to Use</a></li>
+              <li><a href="#example">Example</a></li>
+              <li><a href="#credits">Credits</a></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+        <div class="span9">
+          <div class="row">
+
+            <!-- Introduction ==================================================== -->
+
+            <div class="span9" >
+              <div class="row">
+                <div class="span4">
+                  <h5>About the docs:</h5>
+                  <p>
+                    <strong>By:</strong> CodiBlau<br>
+                    <strong>Created:</strong> 2012-11-21<br>
+                    <strong>Version:</strong> 1.0<br>
+                    <strong>Email:</strong> info@codiblau.com
+                  </p>
+                </div>
+                <div class="span5">
+                  <h5>Thank you!</h5>
+                  <p>Thank you for purchasing our script. If you have any questions that are beyond the scope of this help file, please feel free to email via our user page contact form <a href="http://www.codiblau.com/contact.cb">here</a>. Thanks so much!</p>
+                </div>
+              </div>
+              <hr>
+            </div><!--/span-->
+
+
+            <!-- Installation ==================================================== -->
+
+            <div id="installation" class="span9">
+              <h2>Installation</h2>
+
+              <p>To install this script, just drop the file <code>autoload.php</code> on your server.</p>
+
+            </div>
+            
+            <!-- Configuration ==================================================== -->
+
+            <div id="configuration" class="span9">
+              <h2>Configuration</h2>
+
+              <p>This script has just only 3 parameters. If you open <code>autoload.php</code> file you can see the next parameters that you can configure:</p>
+
+                  <h5>$ignore</h5>
+                  
+                  <p>Variable <code>$ignore</code> is an array which contains folders' name to be ignored. For instance, if you have a folder called "Documentation" and you want to ignore this folder, just add in this array (See <a href="#example">Example</a> section). By default, just 'cgi-bin' folder is ignored.</p>
+                  <p><span class="label label-warning">Note:</span> Just write the NAME of folders, not the entire path.</p>
+                  
+                  <h5>$postfix</h5>
+                  <p>This variable contains the extension of your class files. Usually, classes in php has the extension '.php' or '.class.php'. You need to configure which is your extension.
+                      
+                  <h5>$startpath</h5>
+                  <p><code>$startpath</code> variable is optional to be configured. This variable contains which is the "root" of your application. By default, the "root" is your "document root", but you can start the search of your classes where you want.
+            </div>
+            
+            
+            <!-- How to use ==================================================== -->
+
+            <div id="howto" class="span9">
+              <h2>How to use</h2>
+
+              <p>First of all, you need install and configure the file <code>autoload.php</code>. See <a href="#installation">Installation</a> section and <a href="#configuration">Configuration</a> section.</p>
+              <p>Then, you need to configure your classes. Your files name's need to be EQUAL as class name, this means that if you have a class called "Class1" you must to rename its file to "Class1.php". </p>
+              <p>Finally, just include <code>autoload.php</code> like <code>require_once('PATH_TO_AUTOLOAD/autoload.php')</code>. If you have a "template" and you put the "require_once" in it, you can call all your classes only instantiating them! You can see an example in the <a href="#example">Example</a> section.</p>
+            </div>
+            
+            
+            <!-- Example ==================================================== -->
+
+            <div id="example" class="span9">
+              <h2>Example</h2>
+
+              <p>Imagine you have the next folder structure: </p>
+              <p><img src="images/example1.png" alt="example1"></p>
+              <p>Our objective is invoke <code>Class1.php</code> and <code>Class2.php</code> inside <code>demo.php</code> WITHOUT require the classes. </p>
+              <p><img src="images/example4.png" alt="example4"></p>
+              <p>But, what happen if you call <code>demo.php</code> now? The next image show the result:</p>
+              <p><img src="images/example5.png" alt="example5"></p>
+              <p>Don't worry, &OpenCurlyDoubleQuote;Autoloader PHP&CloseCurlyDoubleQuote; has the solution! We only follow the steps explained above.</p>
+              
+              <h5>Installation</h5>
+              <p>We will copy <code>autoload.php</code> in a folder called "lib", for instance.</p>
+              <p><img src="images/example2.png" alt="example2"></p>
+              
+              <h5>Configuration</h5>
+              <p>Now, we need to configure the parameters in <code>autoload.php</code>.</p>
+              <ul>
+                  <li>$ignore: we will add the folder "Documentation" in this array. This means that <code>autoload.php</code> won't search in "Documentation" folder and their subfolders.</li>
+                  <li>$postfix: our classes have the extension ".php", so this parameter must to be ".php".</li>
+                  <li>$startpath: we want to search "Class1.php" and "Class2.php" from "root", so we can keep this parameter with 'NULL' value.</li>
+              </ul>
+              <p><img src="images/example3.png" alt="example3"></p>
+              
+              <h5>How to use</h5>
+              <p>Class "Class1" needs to be in "Class1.php" file.</p>
+              <p><img src="images/example6.png" alt="example6"></p>
+              <p>The same for class "Class2".</p>
+              <p><img src="images/example7.png" alt="example7"></p>
+              <p>Finally, we just add the "require" command in <code>demo.php</code> file. In this moment, we can instantiate classes without require them.</p>
+              <p><img src="images/example8.png" alt="example8"></p>
+              
+              <h5>That's all!</h5>
+              If we refresh our browser, we can show the result:
+              <p><img src="images/example9.png" alt="example9"></p>
+            </div>
+
+
+
+            <!-- Credits ==================================================== -->
+
+            <div id="credits" class="span9">
+              <h2>Credits</h2>
+              <ul class="unstyled">
+                <li><a href="http://twitter.github.com/bootstrap/" target="_blank">Bootstrap</a> - <em>by Twitter</em></li>
+                <li><a href="http://www.premiumpixels.com" target="_blank">App graphics</a> - <em>by Orman Clark</em></li>
+                <li><a href="http://fortawesome.github.com/Font-Awesome/">Font Awesome</a> - <em>by Dave Gandy</em></li>
+                <li><a href="http://isotope.metafizzy.co" target="_blank">jQuery Isotope</a> - <em>by David DeSandro</em></li>
+                <li><a href="http://fancybox.net/" target="_blank">Fancybox</a> - <em>by Janis Skarnelis</em></li>
+                <li><a href="http://modernizr.com/" target="_blank">Modernizr</a> - <em>by Faruk Ates, Paul Irish, Alex Sexton</em></li>
+                <li><a href="http://themeforest.net/item/smashing-responsive-html5-template/3210308" target="_blank">Smashing Template</a> - <em>by Filip Stefansson</em></li>
+              </ul>
+
+              <hr>
+            </div>
+
+
+          </div><!--/row-->
+        </div><!--/span-->
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <p>&copy; CodiBlau 2012</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+  </body>
+</html>
