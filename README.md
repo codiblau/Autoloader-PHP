@@ -8,7 +8,8 @@ without require nor include them.
 
 
 
-A little brief of how to use
+<h2>A little brief of how to use</h2>
+=====================================
 
 First of all, you need install and configure the file autoload.php. See Installation section and Configuration section.
 
