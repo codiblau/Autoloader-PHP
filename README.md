@@ -9,7 +9,6 @@ without require nor include them.
 
 
 <h2>A little brief of how to use</h2>
-=====================================
 
 First of all, you need install and configure the file autoload.php. See Installation section and Configuration section.
 
@@ -19,4 +18,4 @@ Finally, just include autoload.php like require_once('PATH_TO_AUTOLOAD/autoload.
 
 
 
-Much more help in documentation/help/index.html!
+Much more help in <strong>documentation/help/index.html!</strong>
